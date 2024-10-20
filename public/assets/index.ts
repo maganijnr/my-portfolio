@@ -1,0 +1,9 @@
+export { default as FleetImage } from "./projects/fleet.png";
+export { default as BlocassetImage } from "./projects/blocasset.png";
+export { default as GeekImage } from "./projects/geekwatch.png";
+export { default as CoffeeImageOne } from "./projects/coffee_one.png";
+export { default as CoffeeImageTwo } from "./projects/coffee_two.png";
+export { default as CoffeeImageThree } from "./projects/coffee_three.png";
+export { default as CoffeeImageFour } from "./projects/coffee_four.png";
+export { default as CoffeeImageFive } from "./projects/coffee_five.png";
+export { default as JoshuaImage } from "./joshua.jpg";
