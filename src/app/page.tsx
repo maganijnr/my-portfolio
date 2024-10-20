@@ -109,7 +109,9 @@ export default function Home() {
 							<h3 className="font-semibold text-[#272727]">
 								Frontend Developer (Mobile & Web)
 							</h3>
-							<p className="text-sm">Lemu (October 2024 - Present)</p>
+							<p className="text-sm">
+								Lemu Africa (October 2024 - Present)
+							</p>
 						</div>
 					</div>
 					<div className="h-20 w-0.5 bg-[#ebebeb]"></div>
