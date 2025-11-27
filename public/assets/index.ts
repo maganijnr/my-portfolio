@@ -6,4 +6,7 @@ export { default as CoffeeImageTwo } from "./projects/coffee_two.png";
 export { default as CoffeeImageThree } from "./projects/coffee_three.png";
 export { default as CoffeeImageFour } from "./projects/coffee_four.png";
 export { default as CoffeeImageFive } from "./projects/coffee_five.png";
-export { default as JoshuaImage } from "./joshua.jpg";
+export { default as JoshuaImage } from "./user.jpeg";
+export { default as MonigerImage } from "./projects/moniger.png";
+export { default as EdatTechImage } from "./projects/edat.png";
+export { default as IntelliaskImage } from "./projects/intelliask.png";
