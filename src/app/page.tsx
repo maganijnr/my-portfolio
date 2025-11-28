@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 mb-10">
+      {/* <div className="mt-10 mb-10">
         <h3 className="text-xl">Volunteer Work</h3>
 
         <div className="flex flex-col mt-5">
@@ -115,7 +115,7 @@ export default function Home() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
