@@ -9,10 +9,6 @@ export default function ContactInfo() {
       </div>
       <div className="w-full flex items-center justify-start gap-2">
         <p className="font-medium text-sm text-black">Phone:</p>
-        <p className="text-sm text-black">(+234) 8146644585</p>
-      </div>
-      <div className="w-full flex items-center justify-start gap-2">
-        <p className="font-medium text-sm text-black">Phone:</p>
         <p className="text-sm text-black">(+234) 8189709386</p>
       </div>
     </div>

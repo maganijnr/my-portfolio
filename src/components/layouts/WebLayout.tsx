@@ -25,7 +25,7 @@ export default function WebLayout({ children }: { children: ReactNode }) {
           <h1 className="text-2xl leading-[1.5rem] font-semibold mt-3">
             Joshua Magani
           </h1>
-          <p className="text-lg">Software Engineer</p>
+          <p className="text-lg">Frontend &amp; Mobile Engineer</p>
           <div className="flex items-center gap-5 mt-4">
             <Link href={"https://github.com/maganijnr"} target="_blank">
               <FaGithub size={25} />

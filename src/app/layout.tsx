@@ -11,8 +11,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	title: "Joshua Magani",
-	description: "My developer portfolio.",
+	title: "Joshua Magani — Frontend & Mobile Engineer",
+	description:
+		"Frontend and mobile engineer with 4+ years building revenue-critical web and mobile products across fintech, AI, and consumer platforms.",
 };
 
 export default function RootLayout({

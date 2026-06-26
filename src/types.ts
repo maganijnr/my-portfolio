@@ -18,6 +18,8 @@ export type ExperienceType = {
   sub_projects?: {
     name: string;
     description: string;
+    points?: string[];
   }[];
   description?: string;
+  points?: string[];
 };

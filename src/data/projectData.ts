@@ -11,9 +11,21 @@ import {
   GeekImage,
   IntelliaskImage,
   MonigerImage,
+  RooliImage,
 } from "../../public/assets";
 
 export const projectData: ProjectType[] = [
+  {
+    slug: "rooli-slug",
+    name: "Rooli",
+    stack: ["NextJs", "Zustand", "Typescript", "Framer", "Tanstack Query"],
+    description:
+      "An AI-powered social media scheduling platform for planning, writing, and publishing content across multiple channels.",
+    projectImage: RooliImage,
+    liveUrl: "https://rooli.co/",
+    github: "",
+    projectImages: [RooliImage],
+  },
   {
     slug: "intelliask-slug",
     name: "Intelliask",
@@ -102,67 +114,88 @@ export const projectData: ProjectType[] = [
 
 export const experiences: ExperienceType[] = [
   {
-    name: "Babelos Ltd",
-    position: "Mobile Engineer",
-    duration: "May 2025 - Present",
-    sub_projects: [
-      {
-        name: "Moniger",
-        description:
-          "A smart financial management tool to save, budget, and track expenses seamlessly.",
-      },
+    name: "Rooli",
+    position: "Frontend Engineer",
+    duration: "December 2025 - Present",
+    description:
+      "AI-powered social media scheduling platform for planning, writing, and publishing content across multiple channels.",
+    points: [
+      "Improved product responsiveness and frontend reliability by implementing Zustand for client state and TanStack Query for server-state management across API-driven workflows.",
+      "Standardized loading, error, and recovery states using Next.js app conventions, reducing UX friction across content scheduling and account-management flows.",
+      "Owned the social-account connection experience, a core activation workflow that enables users to link, manage, and publish through multiple social platforms from one dashboard.",
+      "Added unit tests around critical interaction states, reducing regression risk across user-facing product flows.",
+      "Delivered responsive interfaces across core scheduling, dashboard, and account-management journeys.",
     ],
   },
   {
-    name: "Web3D Media Inc",
+    name: "Babelos",
+    position: "Mobile Developer, Moniger Team",
+    duration: "May 2025 - Present",
+    description:
+      "Fintech mobile application for budgeting, saving, subscriptions, virtual cards, and expense tracking.",
+    points: [
+      "Expanded Moniger's monetizable fintech product surface by owning end-to-end React Native delivery for Naira and USD virtual-card creation, funding, management, and monitoring flows.",
+      "Shipped Budget and MoniHub experiences that improved user financial visibility through goal-setting, spending categorization, and real-time progress tracking.",
+      "Delivered subscription-management workflows that support retention by helping users monitor recurring expenses and avoid unwanted charges.",
+      "Migrated mobile integrations from API v1 to API v2 across core financial flows, modernizing the data-access layer while preserving product continuity.",
+      "Improved production stability through defect resolution, troubleshooting, release support, and performance-focused maintenance.",
+      "Supported the companion Next.js admin dashboard for business-user management, improving operational visibility and internal product control.",
+    ],
+  },
+  {
+    name: "Web3D Media",
     position: "Frontend Engineer",
     duration: "March 2022 - October 2024",
+    description:
+      "Built transaction-enabled frontend systems for marketplace, ticketing, and Web3 product experiences.",
     sub_projects: [
       {
-        name: "Blocasset",
+        name: "Blocasset — On-chain builder marketplace",
         description:
-          "Connect with top onchain builders and build with trust on base",
+          "Connect with top onchain builders and build with trust on Base.",
+        points: [
+          "Developed creator-dashboard workflows for asset uploads, sales tracking, and withdrawals, enabling sellers to manage digital assets and revenue activity from one interface.",
+          "Integrated Paystack asset-purchase flows, supporting revenue-generating transactions across the marketplace.",
+          "Migrated state management from Context API to Redux, improving frontend predictability, debugging, and long-term maintainability.",
+        ],
+      },
+      {
+        name: "Witan — Ticketing platform",
+        description:
+          "Transaction-enabled ticketing experience for event purchases.",
+        points: [
+          "Integrated ticket-purchase workflows in collaboration with backend engineers, reducing friction across the checkout experience.",
+          "Implemented Paystack and crypto payment options, expanding supported transaction methods for event ticket purchases.",
+          "Built responsive ticketing interfaces with Next.js, Tailwind CSS, SCSS, and TanStack Query.",
+        ],
       },
     ],
-  },
-  {
-    name: "Quickleap",
-    position: "Frontend Engineer",
-    duration: " April 2021 - March 2022",
-    description:
-      "A platform that enables food businesses to forward plan and make arrangements for their raw material needs to be fulfilled through timely delivery all-year round.",
   },
 ];
 
 export const contractData: ExperienceType[] = [
   {
-    name: "Nullish",
-    position: "Frontend Engineer",
-    duration: "On-demand",
-    // description: "A design agency",
-    sub_projects: [
-      {
-        name: "Intelliask",
-        description:
-          "An AI-powered customer support tool that trains on your content to deliver fast, accurate assistance. (Powered by Nullish)",
-      },
-    ],
-  },
-  {
     name: "Edatech",
     position: "Mobile Engineer",
     duration: "August 2025 - November 2025",
-    sub_projects: [
-      {
-        name: "Edat Tech",
-        description:
-          "A comprehensive suite of AI-powered features designed to revolutionize learning.",
-      },
-      {
-        name: "Edat Tech Quiz",
-        description:
-          "A robust, real-time quiz challenge app allowing participants to scan QR codes to join, compete in timed quizzes, and track progress on a live leaderboard.",
-      },
+    description:
+      "AI-powered learning platform with real-time quiz challenge functionality.",
+    points: [
+      "Built React Native mobile components for AI-enhanced learning experiences.",
+      "Implemented real-time quiz functionality, including QR-code entry, timed challenges, progress tracking, and live leaderboard behavior.",
+      "Supported interactive learning workflows designed to improve engagement, participation, and in-session feedback.",
+    ],
+  },
+  {
+    name: "Nullish",
+    position: "Frontend Engineer, On-Demand",
+    duration: "On-demand",
+    description:
+      "Intelliask — AI-powered customer support platform.",
+    points: [
+      "Built React-based frontend features for AI-assisted customer support interactions.",
+      "Supported interface development for content-trained AI responses and customer query workflows.",
+      "Contributed to AI support experiences designed to reduce response friction and improve access to contextual customer assistance.",
     ],
   },
 ];
