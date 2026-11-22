@@ -11,3 +11,4 @@ export { default as MonigerImage } from "./projects/moniger.png";
 export { default as EdatTechImage } from "./projects/edat.png";
 export { default as IntelliaskImage } from "./projects/intelliask.png";
 export { default as RooliImage } from "./projects/rooli.png";
+export { default as TrustBasketImage } from "./projects/trustbasket.jpg";

@@ -12,9 +12,32 @@ import {
   IntelliaskImage,
   MonigerImage,
   RooliImage,
+  TrustBasketImage,
 } from "../../public/assets";
 
 export const projectData: ProjectType[] = [
+  {
+    slug: "trustbasket-slug",
+    name: "TrustBasket (Founder)",
+    stack: ["React Native", "NextJs", "TypeScript", "Zustand", "Tanstack Query", "Tailwind CSS"],
+    description:
+      "Multi-service everyday shopping, food & grocery delivery, pharmacy, and laundry platform. As Founder, I architect and lead all frontend engineering across three mobile apps and the web applications.",
+    projectImage: TrustBasketImage,
+    liveUrl: "https://trustbasket.co/",
+    github: "",
+    projectImages: [TrustBasketImage],
+  },
+  {
+    slug: "moniger-slug",
+    name: "Moniger",
+    stack: ["React Native", "Zustand", "Typescript"],
+    description:
+      "A smart financial management tool to save, budget, and track expenses seamlessly.",
+    projectImage: MonigerImage,
+    liveUrl: "https://moniger.com/",
+    github: "",
+    projectImages: [MonigerImage],
+  },
   {
     slug: "rooli-slug",
     name: "Rooli",
@@ -36,17 +59,6 @@ export const projectData: ProjectType[] = [
     liveUrl: "https://intelliask.io/",
     github: "",
     projectImages: [IntelliaskImage],
-  },
-  {
-    slug: "moniger-slug",
-    name: "Moniger",
-    stack: ["React Native", "Zustand", "Typescript"],
-    description:
-      "A smart financial management tool to save, budget, and track expenses seamlessly.",
-    projectImage: MonigerImage,
-    liveUrl: "https://moniger.com/",
-    github: "",
-    projectImages: [MonigerImage],
   },
   {
     slug: "edat-slug",
@@ -114,17 +126,15 @@ export const projectData: ProjectType[] = [
 
 export const experiences: ExperienceType[] = [
   {
-    name: "Rooli",
-    position: "Frontend Engineer",
-    duration: "December 2025 - Present",
+    name: "TrustBasket",
+    position: "Founder & Lead Frontend / Mobile Engineer",
+    duration: "Present",
     description:
-      "AI-powered social media scheduling platform for planning, writing, and publishing content across multiple channels.",
+      "Multi-service everyday shopping, food delivery, groceries, pharmacy, and laundry pickup platform (trustbasket.co).",
     points: [
-      "Improved product responsiveness and frontend reliability by implementing Zustand for client state and TanStack Query for server-state management across API-driven workflows.",
-      "Standardized loading, error, and recovery states using Next.js app conventions, reducing UX friction across content scheduling and account-management flows.",
-      "Owned the social-account connection experience, a core activation workflow that enables users to link, manage, and publish through multiple social platforms from one dashboard.",
-      "Added unit tests around critical interaction states, reducing regression risk across user-facing product flows.",
-      "Delivered responsive interfaces across core scheduling, dashboard, and account-management journeys.",
+      "Founded TrustBasket and own the entire frontend and mobile engineering architecture across the ecosystem.",
+      "Architected and built all three mobile applications (React Native) alongside the customer and operational web applications (Next.js & TypeScript).",
+      "Designed cohesive cross-platform user flows for ordering, live order tracking, vendor fulfillment, and dispatch operations.",
     ],
   },
   {
@@ -140,6 +150,20 @@ export const experiences: ExperienceType[] = [
       "Migrated mobile integrations from API v1 to API v2 across core financial flows, modernizing the data-access layer while preserving product continuity.",
       "Improved production stability through defect resolution, troubleshooting, release support, and performance-focused maintenance.",
       "Supported the companion Next.js admin dashboard for business-user management, improving operational visibility and internal product control.",
+    ],
+  },
+  {
+    name: "Rooli",
+    position: "Frontend Engineer",
+    duration: "December 2025 - October 2026",
+    description:
+      "AI-powered social media scheduling platform for planning, writing, and publishing content across multiple channels.",
+    points: [
+      "Improved product responsiveness and frontend reliability by implementing Zustand for client state and TanStack Query for server-state management across API-driven workflows.",
+      "Standardized loading, error, and recovery states using Next.js app conventions, reducing UX friction across content scheduling and account-management flows.",
+      "Owned the social-account connection experience, a core activation workflow that enables users to link, manage, and publish through multiple social platforms from one dashboard.",
+      "Added unit tests around critical interaction states, reducing regression risk across user-facing product flows.",
+      "Delivered responsive interfaces across core scheduling, dashboard, and account-management journeys.",
     ],
   },
   {

@@ -1,89 +1,108 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaCodeCommit } from "react-icons/fa6";
 import { JoshuaImage } from "../../../public/assets";
-import ContactInfo from "../contact-info";
+import SpiderThemeToggle from "@/components/SpiderThemeToggle";
+import SubtleRain from "@/components/SubtleRain";
 
 export default function WebLayout({ children }: { children: ReactNode }) {
   const pathName = usePathname();
+
+  const navLinks = [
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <main>
-      <div className="max-w-[1000px] mx-auto px-4">
-        <section className="flex flex-col gap-0.5 py-10 border-b border-[#272727]/20">
-          <div className="md:w-20 h-16 w-16 md:h-20 rounded-full overflow-hidden relative">
+    <div className="min-h-screen relative selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900">
+      {/* Subtle falling background rain streaks */}
+      <SubtleRain />
+
+      {/* Top-right interactive spider & cobweb theme toggle */}
+      <SpiderThemeToggle />
+
+      {/* Minimal Header (exact rhythm of reference screenshot) */}
+      <header className="relative z-20">
+        <div className="max-w-[740px] mx-auto px-6 pt-7 pb-4 flex items-center justify-between">
+          <Link
+            href="/"
+            className="relative h-9 w-9 rounded-full overflow-hidden ring-1 ring-[var(--border)] hover:opacity-85 transition-opacity shrink-0"
+            aria-label="Joshua Magani Home"
+          >
             <Image
               src={JoshuaImage}
-              alt="user"
-              layout="fill"
-              className=" rounded-full object-cover "
+              alt="Joshua Magani"
+              fill
+              className="object-cover"
+              priority
             />
-          </div>
-          <h1 className="text-2xl leading-[1.5rem] font-semibold mt-3">
-            Joshua Magani
-          </h1>
-          <p className="text-lg">Frontend &amp; Mobile Engineer</p>
-          <div className="flex items-center gap-5 mt-4">
-            <Link href={"https://github.com/maganijnr"} target="_blank">
-              <FaGithub size={25} />
-            </Link>
+          </Link>
 
-            <Link
-              href={"https://www.linkedin.com/in/joshua-magani-9b010918b/"}
-              target="_blank"
-            >
-              <FaLinkedin size={25} />
-            </Link>
-          </div>
-          <ContactInfo />
-        </section>
+          <nav className="flex items-center gap-6 sm:gap-7 pr-8 sm:pr-0">
+            {navLinks.map((item) => {
+              const isActive =
+                (item.href === "/projects" &&
+                  pathName.startsWith("/projects")) ||
+                (item.href === "/contact" && pathName === "/contact");
 
-        <section className="py-5">
-          <nav>
-            <ul className="flex gap-2 items-center">
-              <li
-                className={`p-1 px-2 duration-150 ease-in-out rounded-md ${
-                  pathName === "/"
-                    ? "bg-[#272727] text-white"
-                    : "text-[#272727] "
-                }`}
-              >
-                <Link href={"/"}>About</Link>
-              </li>
-              <li
-                className={`p-1 px-2 duration-150 ease-in-out rounded-md ${
-                  pathName === "/projects" || pathName.includes("projects")
-                    ? "bg-[#272727] text-white"
-                    : "text-[#272727] "
-                }`}
-              >
-                <Link href={"/projects"}>Projects</Link>
-              </li>
-              <li
-                className={`p-1 px-2 duration-150 ease-in-out rounded-md ${
-                  pathName === "/contact"
-                    ? "bg-[#272727] text-white"
-                    : "text-[#272727] "
-                }`}
-              >
-                <Link href={"/contact"}>Contact</Link>
-              </li>
-            </ul>
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-[13.5px] transition-colors ${
+                    isActive
+                      ? "text-[var(--text-primary)] font-medium"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
+        </div>
+      </header>
 
-          <div className="py-2 mt-4">{children}</div>
-        </section>
+      {/* Main Content Column */}
+      <main className="relative z-10 max-w-[740px] mx-auto px-6 pt-12 sm:pt-16 pb-24">
+        {children}
+      </main>
 
-        <footer className="py-10  border-b border-[#272727]/20 flex flex-col justify-center items-center">
-          <FaCodeCommit size={25} />
-          <p className="mt-2 text-center">
-            &copy; {new Date().getFullYear()}- Joshua Magani
-          </p>
-        </footer>
-      </div>
-    </main>
+      {/* Quiet Minimal Footer */}
+      <footer className="relative z-10 max-w-[740px] mx-auto px-6 pb-12">
+        <div className="pt-8 border-t border-[var(--border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13px] text-[var(--text-muted)]">
+          <p>&copy; {new Date().getFullYear()} Joshua Magani</p>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://github.com/maganijnr"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[var(--text-primary)] transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/joshua-magani-9b010918b/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[var(--text-primary)] transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:maganijoshua25@gmail.com"
+              className="hover:text-[var(--text-primary)] transition-colors"
+            >
+              Email
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
