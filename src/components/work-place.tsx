@@ -9,46 +9,70 @@ export default function WorkPlace({
   isLast: boolean;
 }) {
   return (
-    <div className="flex gap-4">
-      <div className="flex flex-col items-center">
-        <div className="h-3 w-3 rounded-full bg-[#ebebeb] shrink-0 mt-1.5" />
-        {!isLast && <div className="w-0.5 bg-[#ebebeb] flex-1 min-h-[20px]" />}
+    <div
+      className={`${
+        !isLast ? "pb-8 mb-8 border-b border-[var(--border)]" : ""
+      }`}
+    >
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+        <div>
+          <h3 className="text-[15.5px] font-semibold text-[var(--text-primary)]">
+            {data.position}
+          </h3>
+          <p className="text-[14px] text-[var(--text-secondary)]">
+            {data.name}
+          </p>
+        </div>
+        <span className="text-[12.5px] font-mono text-[var(--text-muted)] shrink-0">
+          {data.duration}
+        </span>
       </div>
-      <div className="pb-10">
-        <h3 className="font-semibold text-[#272727]">{data.position}</h3>
-        <p className="text-sm mb-2">
-          {data.name} ({data.duration})
+
+      {data.description && (
+        <p className="text-[14px] text-[var(--text-secondary)] mt-3 leading-relaxed">
+          {data.description}
         </p>
-        {data.description && (
-          <p className="text-sm font-normal pl-4">{data.description}</p>
-        )}
-        {data.points && data.points.length > 0 && (
-          <ul className="pl-4 mt-2 list-disc space-y-1 marker:text-[#272727]/40">
-            {data.points.map((point, idx) => (
-              <li key={idx} className="text-sm font-normal ml-4">
-                {point}
-              </li>
-            ))}
-          </ul>
-        )}
-        {data.sub_projects?.map((item, idx) => (
-          <div key={idx} className="pl-4 mt-3">
-            <p className="font-semibold text-sm">
-              {idx + 1}. {item.name}
-            </p>
-            <p className="pl-2 text-sm font-normal">{item.description}</p>
-            {item.points && item.points.length > 0 && (
-              <ul className="pl-2 mt-1 list-disc space-y-1 marker:text-[#272727]/40">
-                {item.points.map((point, pIdx) => (
-                  <li key={pIdx} className="text-sm font-normal ml-4">
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
-      </div>
+      )}
+
+      {data.points && data.points.length > 0 && (
+        <ul className="mt-3 space-y-2">
+          {data.points.map((point, idx) => (
+            <li
+              key={idx}
+              className="text-[13.5px] text-[var(--text-secondary)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:h-1 before:w-1 before:rounded-full before:bg-[var(--text-faint)]"
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {data.sub_projects && data.sub_projects.length > 0 && (
+        <div className="mt-5 space-y-5 pl-4 border-l border-[var(--border)]">
+          {data.sub_projects.map((item, idx) => (
+            <div key={idx}>
+              <p className="text-[14px] font-medium text-[var(--text-primary)]">
+                {item.name}
+              </p>
+              <p className="text-[13.5px] text-[var(--text-muted)] mt-0.5">
+                {item.description}
+              </p>
+              {item.points && item.points.length > 0 && (
+                <ul className="mt-2 space-y-1.5">
+                  {item.points.map((point, pIdx) => (
+                    <li
+                      key={pIdx}
+                      className="text-[13.5px] text-[var(--text-secondary)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:h-1 before:w-1 before:rounded-full before:bg-[var(--text-faint)]"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

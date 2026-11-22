@@ -1,90 +1,126 @@
 "use client";
+
 import { projectData } from "@/data/projectData";
 import { ProjectType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React from "react";
-import { FaCode, FaGithub } from "react-icons/fa";
+import { FiArrowLeft, FiArrowUpRight, FiGithub } from "react-icons/fi";
 
 const SingleProject = () => {
   const { slug }: { slug: string } = useParams();
-
   const project = projectData.find((item: ProjectType) => item.slug === slug);
 
-  if (project) {
+  if (!project) {
     return (
-      <div className="w-full">
-        <div className="flex items-start gap-5  flex-col lg:flex-row">
-          <div className="w-full">
-            <div className="aspect-[1.5/1] rounded-md overflow-hidden relative">
-              <Image
-                src={project?.projectImage}
-                alt="project"
-                layout={"fill"}
-              />
-            </div>
-          </div>
-          <div className="w-full space-y-3">
-            <h2 className="font-semibold text-xl md:text-2xl 2xl:text-3xl">
-              {project?.name}
-            </h2>
-            <h5 className="font-normal text-sm lg:text-base">
-              {project?.description}
-            </h5>
-            <div className="flex gap-2 flex-wrap items-center justify-start">
-              {project?.liveUrl && (
-                <Link href={project.liveUrl} target="_blank">
-                  <div className="flex items-center  justify-start gap-2">
-                    <FaCode />
-                    <p className="font-medium capitalize">Project Link</p>
-                  </div>
-                </Link>
-              )}
-              {project?.github && (
-                <Link href={project.github} target="_blank">
-                  <div className="flex items-center justify-start gap-2">
-                    <FaGithub />
+      <div className="py-12">
+        <p className="text-[14px] text-[var(--text-muted)]">
+          Project not found.
+        </p>
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-1.5 text-[13.5px] text-[var(--text-primary)] mt-4 hover:opacity-75"
+        >
+          <FiArrowLeft size={14} />
+          <span>Back to projects</span>
+        </Link>
+      </div>
+    );
+  }
 
-                    <p className="font-medium capitalize">Github Repo</p>
-                  </div>
-                </Link>
-              )}
-            </div>
-            <div className="flex gap-2 flex-wrap">
-              {project?.stack.map((el, index) => (
-                <span
-                  key={index}
-                  className="text-sm px-3 p-1 rounded-full border"
-                >
-                  {el}
-                </span>
-              ))}
-            </div>
-          </div>
+  return (
+    <div>
+      <Link
+        href="/projects"
+        className="inline-flex items-center gap-1.5 text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors mb-8"
+      >
+        <FiArrowLeft size={14} />
+        <span>All projects</span>
+      </Link>
+
+      <h1 className="text-[28px] sm:text-[34px] font-bold tracking-[-0.025em] text-[var(--text-primary)]">
+        {project.name}
+      </h1>
+      <p className="text-[15px] text-[var(--text-secondary)] mt-3 leading-relaxed">
+        {project.description}
+      </p>
+
+      <div className="flex flex-wrap items-center gap-2.5 mt-6">
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13.5px] font-medium bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] hover:bg-[var(--btn-primary-hover)] transition-colors"
+          >
+            <span>Visit live site</span>
+            <FiArrowUpRight size={14} />
+          </a>
+        )}
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13.5px] font-medium border border-[var(--border)] bg-[var(--bg)] text-[var(--text-primary)] hover:bg-[var(--bg-hover)] transition-colors"
+          >
+            <FiGithub size={14} />
+            <span>GitHub repo</span>
+          </a>
+        )}
+      </div>
+
+      <div className="mt-8 aspect-[1.6/1] rounded-xl overflow-hidden relative border border-[var(--border)] bg-[var(--bg-subtle)]">
+        <Image
+          src={project.projectImage}
+          alt={project.name}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
+      <div className="mt-8">
+        <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--text-muted)] mb-3">
+          Stack
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {project.stack.map((el, index) => (
+            <span
+              key={index}
+              className="px-2.5 py-1 rounded-md text-[13px] border border-[var(--border)] bg-[var(--bg-subtle)] text-[var(--text-primary)]"
+            >
+              {el}
+            </span>
+          ))}
         </div>
+      </div>
 
-        {project && project.projectImages?.length > 1 && (
-          <div className="mt-5 flex gap-4 flex-wrap">
-            {project?.projectImages?.map((item, idx) => (
+      {project.projectImages && project.projectImages.length > 1 && (
+        <div className="mt-10 pt-8 border-t border-[var(--border)]">
+          <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--text-muted)] mb-4">
+            Screens
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {project.projectImages.map((item, idx) => (
               <div
                 key={idx}
-                className="w-full max-w-[180px] h-[350px] relative rounded-md overflow-hidden"
+                className="aspect-[1/2] relative rounded-lg overflow-hidden border border-[var(--border)] bg-[var(--bg-subtle)]"
               >
                 <Image
                   src={item}
-                  alt="item"
-                  layout="fill"
-                  objectFit="contain"
+                  alt={`${project.name} screen ${idx + 1}`}
+                  fill
+                  className="object-contain p-1.5"
                 />
               </div>
             ))}
           </div>
-        )}
-      </div>
-    );
-  }
-  return null;
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default SingleProject;
